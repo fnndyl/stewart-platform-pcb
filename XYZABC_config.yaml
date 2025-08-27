@@ -22,6 +22,7 @@ axes:
   shared_stepper_disable_pin: gpio.4:high
   homing_runs: 2
 
+  # Done
   x:
     steps_per_mm: 177.77
     max_rate_mm_per_min: 12000
@@ -34,12 +35,13 @@ axes:
       positive_direction: false
 
     motor0:
-      limit_neg_pin: gpio.
+      limit_neg_pin: gpio.2:low
       pulloff_mm: 2
       stepstick:
-        direction_pin: gpio.
-        step_pin: gpio.
+        direction_pin: gpio.32
+        step_pin: gpio.33
 
+  # Done
   y:
     steps_per_mm: 177.77
     max_rate_mm_per_min: 12000
@@ -52,12 +54,13 @@ axes:
       positive_direction: false
 
     motor0:
-      limit_neg_pin: gpio.
+      limit_neg_pin: gpio.15:low
       pulloff_mm: 2
       stepstick:
-        direction_pin: gpio.
-        step_pin: gpio.  
+        direction_pin: gpio.25
+        step_pin: gpio.26
   
+  # Done
   z:
     steps_per_mm: 177.77
     max_rate_mm_per_min: 12000
@@ -70,12 +73,13 @@ axes:
       positive_direction: false
 
     motor0:
-      limit_neg_pin: gpio.
+      limit_neg_pin: gpio.36:low
       pulloff_mm: 2
       stepstick:
-        direction_pin: gpio.
-        step_pin: gpio.  
-        
+        direction_pin: gpio.27
+        step_pin: gpio.14
+
+  # Done
   a:
     steps_per_mm: 177.77
     max_rate_mm_per_min: 12000
@@ -88,12 +92,13 @@ axes:
       positive_direction: false
 
     motor0:
-      limit_neg_pin: gpio.
+      limit_neg_pin: gpio.39:low
       pulloff_mm: 2
       stepstick:
-        direction_pin: gpio.
-        step_pin: gpio.  
+        direction_pin: gpio.12
+        step_pin: gpio.13
   
+  # Done
   b:
     steps_per_mm: 177.77
     max_rate_mm_per_min: 12000
@@ -106,12 +111,13 @@ axes:
       positive_direction: false
 
     motor0:
-      limit_neg_pin: gpio.
+      limit_neg_pin: gpio.34:low
       pulloff_mm: 2
       stepstick:
-        direction_pin: gpio.
-        step_pin: gpio.  
+        direction_pin: gpio.23
+        step_pin: gpio.22
   
+  # Done
   c:
     steps_per_mm: 177.77
     max_rate_mm_per_min: 12000
@@ -124,8 +130,8 @@ axes:
       positive_direction: false
 
     motor0:
-      limit_neg_pin: gpio.
+      limit_neg_pin: gpio.35:low
       pulloff_mm: 2
       stepstick:
-        direction_pin: gpio.
-        step_pin: gpio.
+        direction_pin: gpio.21
+        step_pin: gpio.19
