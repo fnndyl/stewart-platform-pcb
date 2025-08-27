@@ -1,0 +1,131 @@
+board: 6 Pack
+name: 6 StepStick XYZABC
+
+# Stepper motor math:
+# Stepper motor @ 200 steps/rev
+# X, Y, Z, A, B, C motor @ 1/16 microstepping
+# 1 step = 1.8 degrees on motor shaft
+# Gear reduction: 20:1
+# 1 step = 0.09 degrees on output shaft
+# Steps/rev = 200 * 16 * 20 = 64000 steps/rev
+# Steps/degree = 64000 / 360 = 177.77 steps/degree on output shaft
+
+start:
+  must_home: false
+
+stepping:
+  engine: RMT
+  idle_ms: 255
+  pulse_us: 5
+
+axes:
+  shared_stepper_disable_pin: gpio.4:high
+  homing_runs: 2
+
+  x:
+    steps_per_mm: 177.77
+    max_rate_mm_per_min: 12000
+    acceleration_mm_per_sec2: 800
+    max_travel_mm: 120
+
+    homing:
+      cycle: 2
+      allow_single_axis: true
+      positive_direction: false
+
+    motor0:
+      limit_neg_pin: gpio.
+      pulloff_mm: 2
+      stepstick:
+        direction_pin: gpio.
+        step_pin: gpio.
+
+  y:
+    steps_per_mm: 177.77
+    max_rate_mm_per_min: 12000
+    acceleration_mm_per_sec2: 800
+    max_travel_mm: 120
+
+    homing:
+      cycle: 2
+      allow_single_axis: true
+      positive_direction: false
+
+    motor0:
+      limit_neg_pin: gpio.
+      pulloff_mm: 2
+      stepstick:
+        direction_pin: gpio.
+        step_pin: gpio.  
+  
+  z:
+    steps_per_mm: 177.77
+    max_rate_mm_per_min: 12000
+    acceleration_mm_per_sec2: 800
+    max_travel_mm: 120
+
+    homing:
+      cycle: 2
+      allow_single_axis: true
+      positive_direction: false
+
+    motor0:
+      limit_neg_pin: gpio.
+      pulloff_mm: 2
+      stepstick:
+        direction_pin: gpio.
+        step_pin: gpio.  
+        
+  a:
+    steps_per_mm: 177.77
+    max_rate_mm_per_min: 12000
+    acceleration_mm_per_sec2: 800
+    max_travel_mm: 120
+
+    homing:
+      cycle: 2
+      allow_single_axis: true
+      positive_direction: false
+
+    motor0:
+      limit_neg_pin: gpio.
+      pulloff_mm: 2
+      stepstick:
+        direction_pin: gpio.
+        step_pin: gpio.  
+  
+  b:
+    steps_per_mm: 177.77
+    max_rate_mm_per_min: 12000
+    acceleration_mm_per_sec2: 800
+    max_travel_mm: 120
+
+    homing:
+      cycle: 2
+      allow_single_axis: true
+      positive_direction: false
+
+    motor0:
+      limit_neg_pin: gpio.
+      pulloff_mm: 2
+      stepstick:
+        direction_pin: gpio.
+        step_pin: gpio.  
+  
+  c:
+    steps_per_mm: 177.77
+    max_rate_mm_per_min: 12000
+    acceleration_mm_per_sec2: 800
+    max_travel_mm: 120
+
+    homing:
+      cycle: 2
+      allow_single_axis: true
+      positive_direction: false
+
+    motor0:
+      limit_neg_pin: gpio.
+      pulloff_mm: 2
+      stepstick:
+        direction_pin: gpio.
+        step_pin: gpio.

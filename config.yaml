@@ -1,0 +1,107 @@
+name: "PPR3"
+board: "ESP32 WROOM Doit Board"
+
+# Stepper motor math:
+# Stepper motor @ 200 steps/rev
+# X, Y motors @ 1/32 microstepping
+# Z motor @ 1/16 microstepping
+
+# Pulley: 20T
+# GT2 timing belt: 2mm/tooth pitch
+# Steps/mm formula: steps_per_mm = (steps_per_revolution * microstepping) / (pulley_teeth * GT2_pitch)
+
+# X, Y motors -> 160 steps/mm 
+
+start:
+  must_home: true
+  check_limits: true
+
+stepping:
+  engine: RMT
+  idle_ms: 255
+  pulse_us: 5
+
+axes:
+  shared_stepper_disable_pin: gpio.21:high
+  homing_runs: 2
+
+  x:
+    steps_per_mm: 80
+    max_rate_mm_per_min: 12000
+    acceleration_mm_per_sec2: 800
+    # !! TEMPORARY VALUE!
+    max_travel_mm: 400
+
+    homing:
+      cycle: 2
+      allow_single_axis: true
+      positive_direction: false
+
+    # X-MOTOR
+    # Updated
+    motor0:
+      limit_neg_pin: gpio.36:low
+      pulloff_mm: 2
+      stepstick:
+        direction_pin: gpio.27:low
+        step_pin: gpio.26
+
+  # Y-axis definition
+  y:
+    steps_per_mm: 160
+    max_rate_mm_per_min: 12000
+    acceleration_mm_per_sec2: 800
+    # !! TEMPORARY VALUE!
+    max_travel_mm: 700
+
+    homing:
+      cycle: 2
+      allow_single_axis: true
+      positive_direction: false
+
+    # Y-MOTOR 0
+    # Updated
+    motor0:
+      limit_neg_pin: gpio.39:low
+      pulloff_mm: 2
+      stepstick:
+        direction_pin: gpio.32:high
+        step_pin: gpio.5
+
+    # Y-MOTOR 1
+    motor1:
+      limit_neg_pin: gpio.34:low
+      pulloff_mm: 2
+      stepstick:
+        direction_pin: gpio.25:low
+        step_pin: gpio.33
+
+  z:
+    # !! Arbitrary value
+    steps_per_mm: 10
+
+    max_rate_mm_per_min: 10000
+    acceleration_mm_per_sec2: 600
+
+    homing:
+      cycle: 1
+      allow_single_axis: true
+      positive_direction: true
+
+    # Z-MOTOR
+    motor0:
+      limit_neg_pin: gpio.35:low
+      pulloff_mm: 3
+      stepstick:
+        direction_pin: gpio.18:high
+        step_pin: gpio.19
+
+spi:
+  miso_pin: gpio.12
+  mosi_pin: gpio.13
+  sck_pin: gpio.14
+
+sdcard:
+  cs_pin: gpio.15
+  card_detect_pin: NO_PIN
+  frequency_hz: 8000000
